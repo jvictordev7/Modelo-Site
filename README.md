@@ -95,13 +95,28 @@ O comando cria uma pasta `build` com os arquivos otimizados para produção.
 
 ## 🌐 Deploy
 
-O projeto está configurado para deploy automático na Vercel através do arquivo `vercel.json`.
+O projeto está configurado para deploy automático na Vercel e é compatível com a estrutura do Create React App.
+
+### Deploy automático via GitHub:
+1. Conecte seu repositório ao Vercel
+2. O deploy será automático a cada push na branch main
+3. A configuração está no arquivo `vercel.json`
 
 ### Deploy manual na Vercel:
 ```bash
 npm install -g vercel
 vercel --prod
 ```
+
+### Estrutura para Deploy:
+- **Build Command**: `npm run build`
+- **Output Directory**: `build`
+- **Framework**: Create React App (detectado automaticamente)
+
+### Configurações importantes:
+- O arquivo `vercel.json` está configurado para SPA (Single Page Application)
+- Todas as rotas são redirecionadas para `index.html` para funcionar com React Router
+- O diretório de build é `build/` (padrão do Create React App)
 
 ## 🔧 Scripts Disponíveis
 
