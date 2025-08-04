@@ -1,0 +1,261 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilos para a navegação inferior */
+.bottom-tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 10px;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-top: 2px solid #ff6b35;
+}
+
+.bottom-tabs a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 60px;
+  position: relative;
+}
+
+.bottom-tabs a:hover {
+  color: #ff6b35;
+  background: rgba(255, 107, 53, 0.1);
+  transform: translateY(-2px);
+}
+
+.bottom-tabs a.active {
+  color: #000000;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Estilos para as páginas */
+.page-container {
+  flex: 1;
+  padding: 30px 20px 90px 20px; /* padding-bottom ajustado para mostrar menos fundo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-content {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border: 2px solid #ff6b35;
+  max-width: 500px;
+  width: 100%;
+}
+
+.page-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.sport-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .bottom-tabs a {
+    font-size: 10px;
+    padding: 6px 8px;
+    min-width: 50px;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .page-content {
+    padding: 20px;
+    margin: 0 10px;
+  }
+
+  /* Otimizações específicas para carrossel mobile */
+  .camiseta-card {
+    margin: 0 5px !important;
+    padding: 18px !important;
+  }
+
+  .camiseta-image {
+    height: 350px !important;
+  }
+
+  .whatsapp-button {
+    font-size: 0.85rem !important;
+    padding: 10px 20px !important;
+  }
+
+  .camiseta-button {
+    font-size: 0.85rem !important;
+    padding: 10px 20px !important;
+  }
+}
+
+/* Melhorias para telas muito pequenas */
+@media (max-width: 480px) {
+  .page-content {
+    padding: 15px !important;
+    margin: 0 5px !important;
+  }
+
+  .page-title {
+    font-size: 1.8rem !important;
+  }
+
+  .page-description {
+    font-size: 1rem !important;
+  }
+
+  .camiseta-image {
+    height: 320px !important;
+  }
+
+  .whatsapp-button, .camiseta-button {
+    font-size: 0.8rem !important;
+    padding: 8px 16px !important;
+  }
+
+  /* Setas menores em telas muito pequenas */
+  .carousel-arrow {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Estilos específicos para galeria de camisetas */
+.camiseta-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.camiseta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+.camiseta-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.camiseta-image:hover {
+  transform: scale(1.05);
+}
+
+.camiseta-button {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.camiseta-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.whatsapp-button {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px auto 0 auto;
+  text-decoration: none;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
